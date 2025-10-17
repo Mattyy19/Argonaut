@@ -7,8 +7,8 @@ using UnityEngine;
 //TODO: Add sprint and crouch
 public class PlayerMovement2D : MonoBehaviour
 {
-    public float moveSpeed = 5f;
-    public float jumpForce = 10f;
+    public float moveSpeed = 7f;
+    public float jumpForce = 13f;
     private bool isGrounded;
     private Rigidbody2D rb;
 
