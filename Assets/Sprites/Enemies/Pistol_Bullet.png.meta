@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: 44be2d7877598f44fa6882fa3ef3654e
+guid: 653db96eabeda604ead533b1396e26b9
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8299492135003658241
-    second: Batting_Bat_Sprite_Sheet_0
-  - first:
-      213: 2806479713573151177
-    second: Batting_Bat_Sprite_Sheet_1
+      213: 6652117580091199038
+    second: Pistol_Bullet_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -103,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Batting_Bat_Sprite_Sheet_0
+      name: Pistol_Bullet_0
       rect:
         serializedVersion: 2
-        x: 1
+        x: 0
         y: 0
-        width: 62
-        height: 64
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,30 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1089a0bcf18bd2370800000000000000
-      internalID: 8299492135003658241
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Batting_Bat_Sprite_Sheet_1
-      rect:
-        serializedVersion: 2
-        x: 63
-        y: 0
-        width: 66
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 9c12edc1e6e92f620800000000000000
-      internalID: 2806479713573151177
+      spriteID: e3e8775d1b1115c50800000000000000
+      internalID: 6652117580091199038
       vertices: []
       indices: 
       edges: []
@@ -150,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: a22b29033611ea04698a3f21a3f70ddf
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -158,14 +133,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries:
-      - key: SpriteEditor.SliceOnImport
-        value: False
-      - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":5.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.0,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":4,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+      entries: []
     nameFileIdTable:
-      Batting_Bat_Sprite_Sheet_0: 8299492135003658241
-      Batting_Bat_Sprite_Sheet_1: 2806479713573151177
+      Pistol_Bullet_0: 6652117580091199038
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
