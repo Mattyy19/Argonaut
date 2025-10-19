@@ -9,6 +9,7 @@ public class PlayerMovement2D : MonoBehaviour
 {
     public float moveSpeed = 7f;
     public float jumpForce = 13f;
+    public Health playerHealth;
     private bool isGrounded;
     private Rigidbody2D rb;
     protected SpriteRenderer spriteRenderer;
@@ -44,6 +45,11 @@ public class PlayerMovement2D : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = true;
+        }
+        // Check if the player touching a hazard
+        if (collision.gameObject.CompareTag("Hazard"))
+        {
+            playerHealth.TakeDamage(100);
         }
     }
 
