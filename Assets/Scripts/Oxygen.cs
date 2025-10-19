@@ -22,6 +22,15 @@ public class Oxygen : MonoBehaviour
         {
             yield return new WaitForSeconds(5f); // wait 5 seconds
             currentOxygen = Mathf.Max(0, currentOxygen - 1); // decrease oxygen but don’t go below 0
+            if (currentOxygen <= 0)
+            {
+                Suffocate();
+            }
         }
+    }
+
+    private void Suffocate()
+    {
+        Destroy(gameObject, 0.5f);
     }
 }
