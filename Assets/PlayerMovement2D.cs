@@ -11,10 +11,12 @@ public class PlayerMovement2D : MonoBehaviour
     public float jumpForce = 13f;
     private bool isGrounded;
     private Rigidbody2D rb;
+    protected SpriteRenderer spriteRenderer;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
     }
 
     void Update()
@@ -22,6 +24,12 @@ public class PlayerMovement2D : MonoBehaviour
         // Handle horizontal movement
         float moveInput = Input.GetAxis("Horizontal");
         rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
+
+        // Flip sprite based on movement direction
+        if (spriteRenderer != null && moveInput != 0)
+        {
+            spriteRenderer.flipX = moveInput < 0; // true when moving left
+        }
 
         // Handle jumping
         if (Input.GetButtonDown("Jump") && isGrounded)
