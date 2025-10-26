@@ -1,0 +1,103 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+
+//Code used from here: https://qookie.games/2d-player-movement/ 
+public class PlayerMovement2D : MonoBehaviour
+{
+    [Header("Movement")]
+    public float moveSpeed = 7f;
+    public float jumpForce = 13f;
+    public float sprintSpeed = 2f;
+
+    [Header("Jetpack")]
+    public bool acquired = false;
+    public float rechargeRate = 1f;
+    public float burnRate = 1f;
+    public float jetpackForce = 15f;
+    public float capacity = 3f;
+
+    [Header("Blaster")]
+    public Transform firePoint;
+
+    private bool isGrounded;
+    private float currFuel;
+    private Rigidbody2D rb;
+    protected SpriteRenderer spriteRenderer;
+
+
+    void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        currFuel = capacity;
+    }
+
+    void Update()
+    {
+        // Handle horizontal movement
+        float moveInput = Input.GetAxis("Horizontal");
+        bool isSprinting = Input.GetKey(KeyCode.LeftShift);
+        float currSpeed = isSprinting ? moveSpeed * sprintSpeed : moveSpeed;
+        rb.linearVelocity = new Vector2(moveInput * currSpeed, rb.linearVelocity.y);
+
+        // Handles jetpack movement, must have enough fuel to fly
+        bool jetpackPressed = Input.GetKey(KeyCode.Q);
+        if (jetpackPressed && currFuel > 0f && acquired)
+        {
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jetpackForce);
+            currFuel -= burnRate * Time.deltaTime;
+            currFuel = Mathf.Max(currFuel, 0f);
+        }
+        // Refills jetpack fuel
+        if (isGrounded && currFuel < capacity)
+        {
+            currFuel += rechargeRate * Time.deltaTime;
+            currFuel = Mathf.Min(currFuel, capacity);
+        }
+
+        // Flip sprite based on movement direction
+        if (spriteRenderer != null && moveInput != 0)
+        {
+            bool flip = moveInput < 0;
+            spriteRenderer.flipX = flip;
+
+            // Flip the firePoint position and facing direction
+            if (firePoint != null)
+            {
+                Vector3 localPos = firePoint.localPosition;
+                localPos.x = Mathf.Abs(localPos.x) * (flip ? -1 : 1);
+                firePoint.localPosition = localPos;
+
+                Vector3 localRot = firePoint.localEulerAngles;
+                localRot.y = flip ? 180 : 0;
+                firePoint.localEulerAngles = localRot;
+            }
+        }
+
+        // Handle jumping
+        if (Input.GetButtonDown("Jump") && isGrounded)
+        {
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+        }
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        // Check if the player is on the ground
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            isGrounded = true;
+        }
+    }
+
+    void OnCollisionExit2D(Collision2D collision)
+    {
+        // Check if the player is no longer on the ground
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            isGrounded = false;
+        }
+    }
+}
