@@ -25,6 +25,7 @@ public class PlayerMovement2D : MonoBehaviour
     public Health playerHealth;
 
     private bool isGrounded;
+    private bool onIce;
     private float currFuel;
     private Rigidbody2D rb;
     protected SpriteRenderer spriteRenderer;
@@ -43,7 +44,12 @@ public class PlayerMovement2D : MonoBehaviour
         float moveInput = Input.GetAxis("Horizontal");
         bool isSprinting = Input.GetKey(KeyCode.LeftShift);
         float currSpeed = isSprinting ? moveSpeed * sprintSpeed : moveSpeed;
-        rb.linearVelocity = new Vector2(moveInput * currSpeed, rb.linearVelocity.y);
+        float targetSpeed = moveInput * currSpeed;
+
+        float accel = onIce ? 30f : 200f; // lower 3 to make more slip
+        float horizontalVelocity = Mathf.MoveTowards(rb.linearVelocity.x, targetSpeed, accel * Time.deltaTime);
+
+        rb.linearVelocity = new Vector2(horizontalVelocity, rb.linearVelocity.y);
 
         // Handles jetpack movement, must have enough fuel to fly
         bool jetpackPressed = Input.GetKey(KeyCode.Q);
@@ -93,6 +99,12 @@ public class PlayerMovement2D : MonoBehaviour
         {
             isGrounded = true;
         }
+        // Check if the player is on Ice
+        if (collision.gameObject.CompareTag("Ice"))
+        {
+            isGrounded = true;
+            onIce = true;
+        }
         // Check if the player touching a hazard
         if (collision.gameObject.CompareTag("Hazard"))
         {
@@ -106,6 +118,12 @@ public class PlayerMovement2D : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = false;
+        }
+        // Check if the player is no longer on ice
+        if (collision.gameObject.CompareTag("Ice"))
+        {
+            isGrounded = false;
+            onIce = false;
         }
     }
 }
