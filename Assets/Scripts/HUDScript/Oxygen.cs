@@ -16,6 +16,19 @@ public class Oxygen : MonoBehaviour
         StartCoroutine(DecreaseCurrentOxygenOverTime());
     }
 
+    public void increaseOxygen(int amount)
+    {
+        int newAmount = currentOxygen += amount;
+        if (newAmount > maxOxygen)
+        {
+            currentOxygen = maxOxygen;
+        }
+        else
+        {
+            currentOxygen += amount;
+        }
+    }
+
     private IEnumerator DecreaseCurrentOxygenOverTime()
     {
         while (true) // loop forever
