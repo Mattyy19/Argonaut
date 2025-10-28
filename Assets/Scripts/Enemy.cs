@@ -21,7 +21,7 @@ public abstract class Enemy : MonoBehaviour
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
     }
 
-    void Update()
+    protected virtual void Update()
     {
         if (player == null) return;
 
@@ -41,7 +41,7 @@ public abstract class Enemy : MonoBehaviour
         if (attackTimer > 0) { attackTimer -= Time.deltaTime;  }
     }
 
-    private void MoveTowardsPlayer()
+    protected virtual void MoveTowardsPlayer()
     {
         Vector2 dir = (player.position - transform.position).normalized;
         transform.Translate(dir * moveSpeed * Time.deltaTime);

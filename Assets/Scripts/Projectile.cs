@@ -32,7 +32,7 @@ public class Projectile : MonoBehaviour
 
     void Update()
     {
-        transform.Translate(direction * speed * Time.deltaTime);
+        transform.Translate(direction * speed * Time.deltaTime, Space.World);
     }
 
     public void SetDirection(Vector2 dir)
