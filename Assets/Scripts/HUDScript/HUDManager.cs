@@ -10,7 +10,7 @@ public class HUDManager : MonoBehaviour
     public GameObject player;
     private Health playerHealth;
     private Oxygen playerOxygen;
-    private int scrap = 0;
+    private Scrap playerScrap;
 
     void Awake()
     {
@@ -32,6 +32,7 @@ public class HUDManager : MonoBehaviour
         }
         playerHealth = player.GetComponent<Health>();
         playerOxygen = player.GetComponent<Oxygen>();
+        playerScrap = player.GetComponent<Scrap>();
 
         UpdateHUD();
     }
@@ -53,7 +54,9 @@ public class HUDManager : MonoBehaviour
             oxygenDisplay.text = "Oxygen: " + playerOxygen.currentOxygen;
         }
 
-        // TODO: Update scrap display when collectibles are added
-        scrapDisplay.text = "Scrap: " + scrap;
+        if (playerScrap != null)
+        {
+            scrapDisplay.text = "Scrap: " + playerScrap.scrapCount;
+        }
     }
 }
