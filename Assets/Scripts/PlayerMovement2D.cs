@@ -21,6 +21,9 @@ public class PlayerMovement2D : MonoBehaviour
     [Header("Blaster")]
     public Transform firePoint;
 
+    [Header("Health Component")]
+    public Health playerHealth;
+
     private bool isGrounded;
     private float currFuel;
     private Rigidbody2D rb;
@@ -89,6 +92,11 @@ public class PlayerMovement2D : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = true;
+        }
+        // Check if the player touching a hazard
+        if (collision.gameObject.CompareTag("Hazard"))
+        {
+            playerHealth.TakeDamage(100);
         }
     }
 
