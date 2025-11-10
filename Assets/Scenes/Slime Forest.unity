@@ -7302,6 +7302,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HUDCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 6854976166450546547, guid: 26e985e4a3fe8834580147c4551c7d15, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7674704657657498696, guid: 26e985e4a3fe8834580147c4551c7d15, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -10608,6 +10612,7 @@ MonoBehaviour:
   jetpackForce: 15
   capacity: 3
   firePoint: {fileID: 2050916879}
+  playerHealth: {fileID: 0}
 --- !u!61 &1414052628
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -14257,10 +14262,10 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1270162045}
-  - {fileID: 1414052623}
   - {fileID: 862737777}
   - {fileID: 769427558}
   - {fileID: 1355988805}
+  - {fileID: 1414052623}
   - {fileID: 1797867992}
   - {fileID: 885914080}
   - {fileID: 1735194533}
