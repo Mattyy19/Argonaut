@@ -46,7 +46,7 @@ public class PlayerMovement2D : MonoBehaviour
         float currSpeed = isSprinting ? moveSpeed * sprintSpeed : moveSpeed;
         float targetSpeed = moveInput * currSpeed;
 
-        float accel = onIce ? 30f : 200f; // lower 3 to make more slip
+        float accel = onIce ? 10f : 200f; // lower 30 to make more slip
         float horizontalVelocity = Mathf.MoveTowards(rb.linearVelocity.x, targetSpeed, accel * Time.deltaTime);
 
         rb.linearVelocity = new Vector2(horizontalVelocity, rb.linearVelocity.y);
@@ -100,13 +100,19 @@ public class PlayerMovement2D : MonoBehaviour
             isGrounded = true;
         }
         // Check if the player is on Ice
-        if (collision.gameObject.CompareTag("Ice"))
+        else if (collision.gameObject.CompareTag("Ice"))
         {
             isGrounded = true;
             onIce = true;
         }
+        else if (collision.gameObject.CompareTag("Slime"))
+        {
+            float bounceMultiplier = collision.gameObject.GetComponent<SlimePlatform>().bounceMultiplier;
+            float bounce = jumpForce * bounceMultiplier;
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, bounce);
+        }
         // Check if the player touching a hazard
-        if (collision.gameObject.CompareTag("Hazard"))
+        else if (collision.gameObject.CompareTag("Hazard"))
         {
             playerHealth.TakeDamage(100);
         }
