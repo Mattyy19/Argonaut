@@ -251,6 +251,7 @@ GameObject:
   - component: {fileID: 7814249417864330970}
   - component: {fileID: 3769355960031072953}
   - component: {fileID: 4028250231927815670}
+  - component: {fileID: 1397866743865958950}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -455,3 +456,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Oxygen
   maxOxygen: 20
   currentOxygen: 0
+--- !u!114 &1397866743865958950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4165409063354111661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 195f96d101a3ead4aa2cf1b3fbbbeb23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WorldCheckpoint
+  playerHealth: {fileID: 3769355960031072953}
