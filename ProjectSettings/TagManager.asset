@@ -9,6 +9,8 @@ TagManager:
   - Hazard
   - Ice
   - Slime
+  - PauseCanvas
+  - HUDCanvas
   layers:
   - Default
   - TransparentFX
