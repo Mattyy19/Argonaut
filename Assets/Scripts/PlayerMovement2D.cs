@@ -24,7 +24,12 @@ public class PlayerMovement2D : MonoBehaviour
     [Header("Health Component")]
     public Health playerHealth;
 
+    [Header("Animations")]
+    public Animator animations;
+
     private bool isGrounded;
+    private bool isWalking;
+    private bool isRunning;
     private bool onIce;
     private float currFuel;
     private Rigidbody2D rb;
@@ -45,6 +50,14 @@ public class PlayerMovement2D : MonoBehaviour
         bool isSprinting = Input.GetKey(KeyCode.LeftShift);
         float currSpeed = isSprinting ? moveSpeed * sprintSpeed : moveSpeed;
         float targetSpeed = moveInput * currSpeed;
+
+        // Set booleans specific for the animator
+        if (moveInput > 0.1 || moveInput < -0.1) {
+            isWalking = true;
+        } else {
+            isWalking = false;
+        }
+        isRunning = isSprinting;
 
         float accel = onIce ? 10f : 200f; // lower 30 to make more slip
         float horizontalVelocity = Mathf.MoveTowards(rb.linearVelocity.x, targetSpeed, accel * Time.deltaTime);
@@ -83,6 +96,10 @@ public class PlayerMovement2D : MonoBehaviour
                 localRot.y = flip ? 180 : 0;
                 firePoint.localEulerAngles = localRot;
             }
+
+            // Update animator
+            animations.SetBool("isWalk", isWalking);
+            animations.SetBool("isRunning", isRunning);
         }
 
         // Handle jumping
@@ -116,6 +133,9 @@ public class PlayerMovement2D : MonoBehaviour
         {
             playerHealth.TakeDamage(100);
         }
+
+        // Update animator
+        animations.SetBool("isJumping", !isGrounded);
     }
 
     void OnCollisionExit2D(Collision2D collision)
@@ -131,5 +151,8 @@ public class PlayerMovement2D : MonoBehaviour
             isGrounded = false;
             onIce = false;
         }
+
+        // Update animator
+        animations.SetBool("isJumping", !isGrounded);
     }
 }
