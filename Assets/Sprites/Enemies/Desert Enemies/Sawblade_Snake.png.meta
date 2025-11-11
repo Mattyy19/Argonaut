@@ -1,10 +1,22 @@
 fileFormatVersion: 2
-guid: cb835c7688f2059469e9c6f6dd376779
+guid: 8905fa1e70a269d4894449d5df6f44a5
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2208703988740019828
-    second: Bullet_0
+      213: -2764894289452215962
+    second: Sawblade_Snake_0
+  - first:
+      213: 5964321503509803568
+    second: Sawblade_Snake_1
+  - first:
+      213: -892157559009685245
+    second: Sawblade_Snake_2
+  - first:
+      213: -290693005114120081
+    second: Sawblade_Snake_3
+  - first:
+      213: -8120414504534221719
+    second: Sawblade_Snake_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +112,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Bullet_0
+      name: Sawblade_Snake_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 16
-        height: 16
+        x: 18
+        y: 16
+        width: 44
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +127,96 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 47656d65394e6ae10800000000000000
-      internalID: 2208703988740019828
+      spriteID: 661d1b3fa4f11a9d0800000000000000
+      internalID: -2764894289452215962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sawblade_Snake_1
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 16
+        width: 45
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 032fcee9ec685c250800000000000000
+      internalID: 5964321503509803568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sawblade_Snake_2
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 16
+        width: 45
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3015c8b4d6b6e93f0800000000000000
+      internalID: -892157559009685245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sawblade_Snake_3
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 16
+        width: 44
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f686b73804047fbf0800000000000000
+      internalID: -290693005114120081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sawblade_Snake_4
+      rect:
+        serializedVersion: 2
+        x: 338
+        y: 16
+        width: 44
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96cde4c280e7e4f80800000000000000
+      internalID: -8120414504534221719
       vertices: []
       indices: 
       edges: []
@@ -125,7 +225,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +235,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Bullet_0: 2208703988740019828
+      Sawblade_Snake_0: -2764894289452215962
+      Sawblade_Snake_1: 5964321503509803568
+      Sawblade_Snake_2: -892157559009685245
+      Sawblade_Snake_3: -290693005114120081
+      Sawblade_Snake_4: -8120414504534221719
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
