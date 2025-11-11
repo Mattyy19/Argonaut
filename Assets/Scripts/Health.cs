@@ -20,13 +20,6 @@ public class Health : MonoBehaviour
         currentHealth = maxHealth;
     }
 
-    private void Update()
-    {
-        if (Input.GetKey(KeyCode.J)) {
-            Death();
-        }
-    }
-
     public void TakeDamage(float amount)
     {
         currentHealth -= amount;
