@@ -13,9 +13,18 @@ public class Health : MonoBehaviour
     public event Action OnHeal;
     public event Action OnDeath;
 
+    private Vector3 checkpointPos;
+
     void Awake()
     {
         currentHealth = maxHealth;
+    }
+
+    private void Update()
+    {
+        if (Input.GetKey(KeyCode.J)) {
+            Death();
+        }
     }
 
     public void TakeDamage(float amount)
@@ -41,6 +50,16 @@ public class Health : MonoBehaviour
     public void Death()
     {
         if(OnDeath != null) { OnDeath.Invoke(); }
-        Destroy(gameObject, 0.5f);
+
+        transform.position = checkpointPos;
+        currentHealth = maxHealth;
+        gameObject.GetComponent<Rigidbody2D>().linearVelocity = new Vector3(0, 0, 0);
+        
+        // destroy the player Destroy(gameObject, 0.5f);
+    }
+
+    public void setCheckpointPos(Vector3 pos)
+    {
+        checkpointPos = pos;
     }
 }
