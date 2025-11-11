@@ -8,6 +8,7 @@ public abstract class Enemy : MonoBehaviour
     public float detectionRange = 6f;
     public float attackDistance = 2f;
     public float attackCooldown = 1.5f;
+    public bool flipAnimation = false;
     private float attackTimer;
 
     protected Transform player;
@@ -44,14 +45,14 @@ public abstract class Enemy : MonoBehaviour
     protected virtual void MoveTowardsPlayer()
     {
         Vector2 dir = (player.position - transform.position).normalized;
-        transform.Translate(dir * moveSpeed * Time.deltaTime);
+        transform.Translate(dir * moveSpeed * Time.deltaTime, Space.World);
 
         if (spriteRenderer != null)
         {
             if (player.position.x < transform.position.x)
-                spriteRenderer.flipX = true;   // facing left
+                spriteRenderer.flipX = !flipAnimation;   // facing left
             else
-                spriteRenderer.flipX = false;  // facing right
+                spriteRenderer.flipX = flipAnimation;  // facing right
         }
     }
 

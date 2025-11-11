@@ -69,8 +69,7 @@ public class KingGatlingGoop : BossEnemy
 
     protected override void Attack()
     {
-        if (!firing)
-            StartCoroutine(FireBurst());
+        if (!firing) { StartCoroutine(FireBurst()); }
     }
 
     private System.Collections.IEnumerator FireBurst()

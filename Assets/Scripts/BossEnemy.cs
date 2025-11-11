@@ -20,7 +20,7 @@ public abstract class BossEnemy : Enemy
         }
     }
 
-    protected virtual void update()
+    protected override void Update()
     {
         base.Update();
         PhaseCheck();

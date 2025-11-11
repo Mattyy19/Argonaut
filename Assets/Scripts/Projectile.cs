@@ -10,6 +10,7 @@ public class Projectile : MonoBehaviour
     public string targetTag = "Player"; //Player or Enemy
     public bool gravityAffected = false;
     public float gravityModifier = 10f;
+    public float spriteRotation = 0;
 
     private Vector2 direction;
     private Rigidbody2D rb;
@@ -27,7 +28,6 @@ public class Projectile : MonoBehaviour
         }
 
         rb.gravityScale = gravityAffected ? gravityModifier : 0f;
-
     }
 
     void Update()
@@ -39,7 +39,9 @@ public class Projectile : MonoBehaviour
     {
         direction = dir.normalized;
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        transform.rotation = Quaternion.Euler(0f, 0f, angle - spriteRotation);
+
+        //rb.velocity = direction * speed;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
