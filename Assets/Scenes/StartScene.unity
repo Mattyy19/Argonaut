@@ -932,7 +932,7 @@ MonoBehaviour:
   m_StreamingVersion: 20241001
   m_LegacyPriority: 0
   Target:
-    TrackingTarget: {fileID: 1532049156}
+    TrackingTarget: {fileID: 0}
     LookAtTarget: {fileID: 0}
     CustomLookAtTarget: 0
   Lens:
@@ -1849,6 +1849,7 @@ GameObject:
   - component: {fileID: 1532049152}
   - component: {fileID: 1532049158}
   - component: {fileID: 1532049159}
+  - component: {fileID: 1532049160}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1905,6 +1906,7 @@ MonoBehaviour:
   capacity: 3
   firePoint: {fileID: 0}
   playerHealth: {fileID: 0}
+  animations: {fileID: 1532049160}
 --- !u!212 &1532049155
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1952,7 +1954,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7588089644068707524, guid: fd68a5192a83d294c8265bbc19248f60, type: 3}
+  m_Sprite: {fileID: -2900647962306260050, guid: e46056ea321214ed68030c1705b1d711, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2016,7 +2018,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.16, y: 0.28}
+    oldSize: {x: 0.14, y: 0.27}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -2052,6 +2054,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Oxygen
   maxOxygen: 20
   currentOxygen: 0
+--- !u!95 &1532049160
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1532049151}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 09998a291e8854a8280914f35b85b56a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1612084692 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3732140786578878197, guid: 26e985e4a3fe8834580147c4551c7d15, type: 3}
