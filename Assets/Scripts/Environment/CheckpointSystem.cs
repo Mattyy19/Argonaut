@@ -22,6 +22,10 @@ public class WorldCheckpoint : MonoBehaviour
         {
             activateCheckpoint(other.transform.GetChild(0));
         }
+        else if (other.tag == "Portal")
+        {
+            PersistentInfo.LoadNextScene();
+        }
     }
 
     public void activateCheckpoint(Transform flag)
