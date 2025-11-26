@@ -49,6 +49,7 @@ public class SawbladeSnake : Enemy
 
     private System.Collections.IEnumerator SpinAttack()
     {
+        AudioManager.Instance.Play(AudioManager.SoundType.SawSnk_Hiss);
         isAttacking = true;
         animator.SetBool("isAttacking", true);
         movementCollider.enabled = false;
@@ -58,6 +59,7 @@ public class SawbladeSnake : Enemy
 
         float t = 0f;
 
+        AudioManager.Instance.Play(AudioManager.SoundType.SawSnk_Roll);
         while (t < spinDuration)
         {
             Vector2 direction = (player.position - transform.position).normalized;
@@ -96,6 +98,7 @@ public class SawbladeSnake : Enemy
     {
         if (isAttacking && collision.gameObject.CompareTag("Player"))
         {
+            AudioManager.Instance.Play(AudioManager.SoundType.SawSnk_Hit);
             collision.gameObject.GetComponent<Health>()?.TakeDamage(damage);
         }
     }

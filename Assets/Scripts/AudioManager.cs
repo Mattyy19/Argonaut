@@ -18,14 +18,14 @@ public class AudioManager : MonoBehaviour
         StabSq_Hit,
         StabSq_Hurt,
 
-        PistPn_Quack,
-        PistPn_Shoot,
-        PistPn_Hurt,
+        PistPn_Quack, 
+        PistPn_Shoot, 
+        PistPn_Hurt,  //Done
 
-        SawSnk_Hiss,
-        SawSnk_Roll,
-        SawSnk_Hit,
-        SawSnk_Hurt,
+        SawSnk_Hiss, //Done
+        SawSnk_Roll, //Done
+        SawSnk_Hit,  //Done
+        SawSnk_Hurt, //Done
 
         ThundT_Move,
         ThundT_Summon,
