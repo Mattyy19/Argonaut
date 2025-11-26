@@ -46,17 +46,17 @@ public class HUDManager : MonoBehaviour
     {
         if (playerHealth != null)
         {
-            healthDisplay.text = "Health: " + playerHealth.currentHealth;
+            healthDisplay.text = playerHealth.currentHealth.ToString();
         }
 
         if (playerOxygen != null)
         {
-            oxygenDisplay.text = "Oxygen: " + playerOxygen.currentOxygen;
+            oxygenDisplay.text = playerOxygen.currentOxygen.ToString();
         }
 
         if (playerScrap != null)
         {
-            scrapDisplay.text = "Scrap: " + playerScrap.scrapCount;
+            scrapDisplay.text = playerScrap.scrapCount.ToString();
         }
     }
 }
