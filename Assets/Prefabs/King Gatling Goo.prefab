@@ -208,6 +208,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Health
   maxHealth: 500
   currentHealth: 0
+  TakeDamageSound: KingGG_Hurt
+  OnHealSound: 
+  OnDeathSound: KingGG_Hurt
 --- !u!114 &4203943141381622083
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -239,7 +242,7 @@ MonoBehaviour:
   hopCooldown: 1.5
   crawlSpeed: 2
   hopRange: 6
-  slimePrefab: {fileID: 0}
+  slimePrefab: {fileID: 8781287287875110204, guid: 0d9af05fee5f62943b30f9e042eb338c, type: 3}
   summonCount: 3
 --- !u!1 &2625750209779431424
 GameObject:

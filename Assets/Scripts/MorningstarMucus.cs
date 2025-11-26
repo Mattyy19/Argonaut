@@ -42,6 +42,7 @@ public class MorningstarMucus : BossEnemy
 
     private System.Collections.IEnumerator SpinAndRoll()
     {
+        AudioManager.Instance.Play(AudioManager.SoundType.MorStS_Attack);
         spinning = true;
         float spinDir = (player.position.x < transform.position.x) ? 1f : -1f;
         Vector2 dir = (player.position - transform.position).normalized;
@@ -106,6 +107,7 @@ public class MorningstarMucus : BossEnemy
         float sprayAngle = gooSpread;
         float halfAngle = sprayAngle / 2f;
 
+        AudioManager.Instance.Play(AudioManager.SoundType.ScimSl_Squish);
         for (int i = 0; i < gooOnHit; i++)
         {
             float angleOffset = Mathf.Lerp(-halfAngle, halfAngle, (float)i / (gooOnHit - 1));

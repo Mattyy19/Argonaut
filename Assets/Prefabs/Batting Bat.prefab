@@ -176,6 +176,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Health
   maxHealth: 100
   currentHealth: 0
+  TakeDamageSound: BatBat_Hurt
+  OnHealSound: 
+  OnDeathSound: BatBat_Hurt
 --- !u!114 &9040296168412466690
 MonoBehaviour:
   m_ObjectHideFlags: 0

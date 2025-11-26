@@ -42,6 +42,7 @@ public class KingGatlingGoop : BossEnemy
         {
             if (Time.time >= nextHopTime && isGrounded)
             {
+                AudioManager.Instance.Play(AudioManager.SoundType.KingGG_Squish);
                 Vector2 dir = (player.position - transform.position).normalized;
                 dir.y = Mathf.Abs(dir.y) + 0.6f;
                 rb.linearVelocity = Vector2.zero;
@@ -75,6 +76,7 @@ public class KingGatlingGoop : BossEnemy
     private System.Collections.IEnumerator FireBurst()
     {
         firing = true;
+        AudioManager.Instance.Play(AudioManager.SoundType.KingGG_Shoot);
         animator.SetBool("IsFiring", true);
         float t = 0f;
 
@@ -115,6 +117,7 @@ public class KingGatlingGoop : BossEnemy
         base.EnterNextPhase();
 
         // Spawn mini slimes
+        AudioManager.Instance.Play(AudioManager.SoundType.KingGG_Summon);
         for (int i = 0; i < summonCount; i++)
         {
             Vector3 pos = transform.position + (Vector3)(Random.insideUnitCircle * 1.5f);

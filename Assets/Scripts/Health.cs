@@ -10,8 +10,11 @@ public class Health : MonoBehaviour
 
 
     public event Action OnTakeDamage;
+    public String TakeDamageSound;
     public event Action OnHeal;
+    public String OnHealSound;
     public event Action OnDeath;
+    public String OnDeathSound;
 
     private Vector3 checkpointPos;
 
@@ -30,6 +33,7 @@ public class Health : MonoBehaviour
             Death(); 
         } else if (OnTakeDamage != null)
         {
+            AudioManager.Instance.Play(AudioManager.getSound(TakeDamageSound));
             OnTakeDamage.Invoke();
         }
     }
@@ -37,12 +41,20 @@ public class Health : MonoBehaviour
     public void Heal(float amount)
     {
         currentHealth = Mathf.Min(currentHealth + amount, maxHealth);
-        if (OnHeal != null) { OnHeal.Invoke(); }
+        if (OnHeal != null) 
+        {
+            AudioManager.Instance.Play(AudioManager.getSound(OnHealSound));
+            OnHeal.Invoke(); 
+        }
     }
 
     public void Death()
     {
-        if(OnDeath != null) { OnDeath.Invoke(); }
+        if(OnDeath != null) 
+        {
+            AudioManager.Instance.Play(AudioManager.getSound(OnDeathSound));
+            OnDeath.Invoke(); 
+        }
 
         transform.position = checkpointPos;
         currentHealth = maxHealth;

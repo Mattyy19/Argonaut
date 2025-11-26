@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7587158268660195213}
   - component: {fileID: 530361023692525377}
   m_Layer: 0
-  m_Name: Slime
+  m_Name: Scimitar Slime
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -204,6 +204,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Health
   maxHealth: 100
   currentHealth: 0
+  TakeDamageSound: ScimSl_Hurt
+  OnHealSound: 
+  OnDeathSound: ScimSl_Hurt
 --- !u!114 &530361023692525377
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -13,7 +13,7 @@ public class ScimitarSlime : Enemy
 
     private System.Collections.IEnumerator LungeAttack()
     {
-
+        AudioManager.Instance.Play(AudioManager.SoundType.ScimSl_Attack);
         Vector2 start = transform.position;
         Vector2 target = player.position;
         Vector2 dir = (target - start).normalized;
@@ -39,7 +39,10 @@ public class ScimitarSlime : Enemy
         foreach (Collider2D hit in hits)
         {
             if (hit.CompareTag("Player"))
+            {
+                AudioManager.Instance.Play(AudioManager.SoundType.ScimSl_Squish);
                 hit.GetComponent<Health>()?.TakeDamage(damage);
+            }
         }
     }
 }
