@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class HUDManager : MonoBehaviour
@@ -24,16 +25,35 @@ public class HUDManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+    void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        ReacquirePlayer();
+    }
+
+    private void ReacquirePlayer()
+    {
+        player = GameObject.FindWithTag("Player");
+        if (player != null)
+        {
+            playerHealth = player.GetComponent<Health>();
+            playerOxygen = player.GetComponent<Oxygen>();
+            playerScrap = player.GetComponent<Scrap>();
+        }
+    }
+
     void Start()
     {
-        if (player == null)
-        {
-            player = GameObject.FindWithTag("Player");
-        }
-        playerHealth = player.GetComponent<Health>();
-        playerOxygen = player.GetComponent<Oxygen>();
-        playerScrap = player.GetComponent<Scrap>();
-
+        ReacquirePlayer();
         UpdateHUD();
     }
 
@@ -46,7 +66,7 @@ public class HUDManager : MonoBehaviour
     {
         if (playerHealth != null)
         {
-            healthDisplay.text = playerHealth.currentHealth.ToString();
+            healthDisplay.text = ((int)playerHealth.currentHealth).ToString();
         }
 
         if (playerOxygen != null)

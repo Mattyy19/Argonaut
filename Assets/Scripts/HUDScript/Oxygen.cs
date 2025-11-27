@@ -3,11 +3,14 @@ using System.Collections;
 
 public class Oxygen : MonoBehaviour
 {
-    public int maxOxygen = 20;
+    public int maxOxygen;
     public int currentOxygen;
-
+    public GameObject player;
+    private Health playerHealth;
     void Awake()
     {
+        player = GameObject.FindWithTag("Player");
+        playerHealth = player.GetComponent<Health>();
         currentOxygen = maxOxygen;
     }
 
@@ -37,13 +40,8 @@ public class Oxygen : MonoBehaviour
             currentOxygen = Mathf.Max(0, currentOxygen - 1); // decrease oxygen but don’t go below 0
             if (currentOxygen <= 0)
             {
-                Suffocate();
+                playerHealth.Death();
             }
         }
-    }
-
-    private void Suffocate()
-    {
-        Destroy(gameObject, 0.5f);
     }
 }
