@@ -27,6 +27,7 @@ public class StabbingSquid : Enemy
 
     private System.Collections.IEnumerator DashAttack()
     {
+        AudioManager.Instance.Play(AudioManager.SoundType.StabSq_Squish);
         dashing = true;
         canAttack = false;
 
@@ -34,6 +35,7 @@ public class StabbingSquid : Enemy
         rb.linearVelocity = dashDirection * dashSpeed;
 
         yield return new WaitForSeconds(dashTime);
+        AudioManager.Instance.Play(AudioManager.SoundType.StabSq_Stab);
 
         rb.linearVelocity = Vector2.zero;
 
@@ -61,6 +63,7 @@ public class StabbingSquid : Enemy
             Health health = other.gameObject.GetComponent<Health>();
             if (health != null)
             {
+                AudioManager.Instance.Play(AudioManager.SoundType.StabSq_Hit);
                 health.TakeDamage(damage);
             }
 

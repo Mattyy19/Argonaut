@@ -8,6 +8,7 @@ public class Turret : MonoBehaviour
     public float fireRate = 1f;
     public bool temporary = true;
     public float timeToDecay = 10f;
+    public string fireSound;
 
     [Header("Fire Modes")]
     public bool targetPlayer = true;
@@ -59,6 +60,7 @@ public class Turret : MonoBehaviour
 
     void FireFromPoint(Transform fp)
     {
+        AudioManager.Instance.Play(AudioManager.getSound(fireSound));
         Vector2 direction = Vector2.right;
 
         if (targetPlayer && player != null)

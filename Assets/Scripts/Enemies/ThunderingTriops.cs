@@ -77,6 +77,7 @@ public class ThunderingTriops : BossEnemy
     {
         isAttacking = true;
         animator.SetBool("IsAttacking", true);
+        AudioManager.Instance.Play(AudioManager.SoundType.ThundT_Charge);
 
         yield return new WaitForSeconds(0.5f);
 
@@ -110,6 +111,7 @@ public class ThunderingTriops : BossEnemy
 
     private void ShootLightning()
     {
+        AudioManager.Instance.Play(AudioManager.SoundType.ThundT_Lightning);
         Vector2 dir = (player.position - firePoint.position).normalized;
         Vector3 firePos = firePoint.position + (Vector3)(dir * 10f);
         GameObject lightningBolt = Instantiate(lightning, firePos, Quaternion.identity);
@@ -128,8 +130,8 @@ public class ThunderingTriops : BossEnemy
     {
         //Removes clouds that have despawned
         clouds.RemoveAll(c => c.cloud == null);
+        AudioManager.Instance.Play(AudioManager.SoundType.ThundT_Summon);
 
-        
         List<int> availablePositions = new List<int>();
         for (int i = 0; i < summonPositions.Length; i++)
         {

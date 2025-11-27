@@ -8,39 +8,45 @@ public class AudioManager : MonoBehaviour
 {
     public enum SoundType
     {
-        BatBat_Screech,
-        BatBat_Swing,
-        BatBat_Hit,
-        BatBat_Hurt,
+        BatBat_Screech, //Done  //Complete
+        BatBat_Swing,   //Done
+        BatBat_Hit,     //Done
+        BatBat_Hurt,    //Done
 
-        StabSq_Squish,
-        StabSq_Stab,
-        StabSq_Hit,
-        StabSq_Hurt,
+        StabSq_Squish, //Done  //Complete
+        StabSq_Stab,   //Done
+        StabSq_Hit,    //Done
+        StabSq_Hurt,   //Done
+
+        ShiSnl_Guard,   //Done  //Complete
+        ShiSnl_Hurt,    //Done
+        ShiSnl_Deflect, //Done
+        ShiSnl_Death,   //Done
 
         PistPn_Quack, 
-        PistPn_Shoot, 
+        PistPn_Shoot, //Done
         PistPn_Hurt,  //Done
 
-        SawSnk_Hiss, //Done
+        SawSnk_Hiss, //Done  //Complete
         SawSnk_Roll, //Done
         SawSnk_Hit,  //Done
         SawSnk_Hurt, //Done
 
-        ThundT_Move,
-        ThundT_Summon,
-        ThundT_Lightning,
-        ThundT_Hurt,
+        ThundT_Charge,    //Done  //Complete
+        ThundT_Summon,    //Done
+        ThundT_Lightning, //Done
+        ThundT_Hurt,      //Done
+        ThundT_Death,     //Done
 
-        ScimSl_Squish, //Done
+        ScimSl_Squish, //Done  //Complete
         ScimSl_Attack, //Done
         ScimSl_Hurt,   //Done
 
-        MorStS_Squish, //Done
+        MorStS_Squish, //Done  //Complete
         MorStS_Attack,  //Done
         MorStS_Hurt,    //Done
 
-        KingGG_Squish, //Done
+        KingGG_Squish, //Done  //Complete
         KingGG_Shoot,  //Done
         KingGG_Summon, //Done
         KingGG_Hurt,   //Done

@@ -989,7 +989,7 @@ MonoBehaviour:
   currentHealth: 0
   TakeDamageSound: ThundT_Hurt
   OnHealSound: 
-  OnDeathSound: ThundT_Hurt
+  OnDeathSound: ThundT_Death
 --- !u!114 &1069923052450542747
 MonoBehaviour:
   m_ObjectHideFlags: 0
