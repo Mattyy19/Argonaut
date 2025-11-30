@@ -59,9 +59,19 @@ public class PlayerMovement2D : MonoBehaviour
         }
         isRunning = isSprinting;
 
-        float accel = onIce ? 10f : 200f; // lower 30 to make more slip
-        float horizontalVelocity = Mathf.MoveTowards(rb.linearVelocity.x, targetSpeed, accel * Time.deltaTime);
+        float accel = onIce ? 10f : 200f;
+        float decel = onIce ? 2f : 200f;
+        targetSpeed = onIce ? targetSpeed * 2 : targetSpeed;
+        float horizontalVelocity = rb.linearVelocity.x;
 
+        if (Mathf.Abs(targetSpeed) > Mathf.Abs(horizontalVelocity))
+        {
+            horizontalVelocity = Mathf.MoveTowards(horizontalVelocity, targetSpeed, accel * Time.deltaTime);
+        }
+        else
+        {
+            horizontalVelocity = Mathf.MoveTowards(horizontalVelocity, targetSpeed, decel * Time.deltaTime);
+        }
         rb.linearVelocity = new Vector2(horizontalVelocity, rb.linearVelocity.y);
 
         // Handles jetpack movement, must have enough fuel to fly
