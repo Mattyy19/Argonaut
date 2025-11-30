@@ -9,6 +9,8 @@ public class DesertEnvironment : MonoBehaviour
 
     public GameObject player;
     public float sunDamage = 10;
+    public GameObject sunDamageImage;
+    public GameObject sunTint;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -46,19 +48,27 @@ public class DesertEnvironment : MonoBehaviour
         Debug.Log($"Harsh sun for {time}s");
 
         //Player takes 10 damage a second until they get to shade or to boss area or harsh sun stops
+        sunTint.SetActive(true);
         while (elapsed < time)
         {
             if (!safe)
             {
+                sunDamageImage.SetActive(true);
                 health.TakeDamage(sunDamage * Time.deltaTime);
                 Debug.Log("Took damage from the sun");
             }
+            else
+            {
+                sunDamageImage.SetActive(false);
+            }
 
-            elapsed += Time.deltaTime;
+                elapsed += Time.deltaTime;
 
             yield return null;
         }
 
+        sunDamageImage.SetActive(false);
+        sunTint.SetActive(false);
         Debug.Log("Harsh sun over");
     }
 
