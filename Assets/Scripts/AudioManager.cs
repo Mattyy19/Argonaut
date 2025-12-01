@@ -51,6 +51,9 @@ public class AudioManager : MonoBehaviour
         KingGG_Summon, //Done
         KingGG_Hurt,   //Done
 
+        Oxygen_Collected,
+        Scrap_Collected,
+
         // Add more sound types
 
         none
