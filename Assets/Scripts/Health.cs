@@ -28,9 +28,11 @@ public class Health : MonoBehaviour
     {
         if(invulnerable)
         {
+            AudioManager.Instance.Play(AudioManager.getSound(TakeDamageSound));
             return;
         }
-
+        
+        AudioManager.Instance.Play(AudioManager.getSound(TakeDamageSound));
         currentHealth -= amount;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
 
@@ -39,7 +41,7 @@ public class Health : MonoBehaviour
             Death(); 
         } else if (OnTakeDamage != null)
         {
-            AudioManager.Instance.Play(AudioManager.getSound(TakeDamageSound));
+            
             OnTakeDamage.Invoke();
         }
     }

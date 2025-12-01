@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 3285889302205244251}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.84799, y: 11.92202, z: 0}
+  m_LocalPosition: {x: -128.42603, y: 38.61156, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -119,7 +119,7 @@ MonoBehaviour:
     Source: {fileID: 0}
   - Type: 8
     Clip: {fileID: 8300000, guid: ef913c71312b48e4291dc3d2c3adc794, type: 3}
-    Volume: 1
+    Volume: 0.5
     Source: {fileID: 0}
   - Type: 9
     Clip: {fileID: 8300000, guid: eb0e151528b1ef14bb32d20315d80364, type: 3}
@@ -153,11 +153,31 @@ MonoBehaviour:
     Clip: {fileID: 8300000, guid: 0925dbbe9bad2db4d9fdb07bbb51e9cc, type: 3}
     Volume: 1
     Source: {fileID: 0}
+  - Type: 4
+    Clip: {fileID: 8300000, guid: c5a822ca335ef3842bc76a34937e05dd, type: 3}
+    Volume: 0.2
+    Source: {fileID: 0}
+  - Type: 5
+    Clip: {fileID: 8300000, guid: 56814423e1ae70a4084c2f5c10eaffec, type: 3}
+    Volume: 0.2
+    Source: {fileID: 0}
+  - Type: 6
+    Clip: {fileID: 8300000, guid: 79406856d5b904d4bbf500d1751cfadf, type: 3}
+    Volume: 1
+    Source: {fileID: 0}
+  - Type: 7
+    Clip: {fileID: 8300000, guid: 724e9e407fe3f234b97af98e5293197b, type: 3}
+    Volume: 1
+    Source: {fileID: 0}
   - Type: 34
     Clip: {fileID: 8300000, guid: 01d18c3877998204ca36abac228dafef, type: 3}
-    Volume: 0.985
+    Volume: 1
     Source: {fileID: 0}
   - Type: 35
     Clip: {fileID: 8300000, guid: 62175649fc0964b41a64eaefa19a7f47, type: 3}
     Volume: 1
+    Source: {fileID: 0}
+  - Type: 36
+    Clip: {fileID: 8300000, guid: 3df2c5e7f3f2edc4bb1ebb1a9acd45b5, type: 3}
+    Volume: 0.2
     Source: {fileID: 0}
