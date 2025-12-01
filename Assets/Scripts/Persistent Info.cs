@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public static class PersistentInfo
 {
-    private static List<string> sceneOrder = new List<string> { "StartScene", "1st Cave" };
+    private static List<string> sceneOrder = new List<string> { "StartScene", "1st Cave", "Ice Mountain", "Slime Forest", "Desert" };
     private static int currIndex = 0;
     public static int scrapCount = 0;
 
