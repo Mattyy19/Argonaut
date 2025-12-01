@@ -621,6 +621,7 @@ MonoBehaviour:
   fireRate: 0.5
   temporary: 1
   timeToDecay: 7
+  fireSound: 
   targetPlayer: 0
   fixedAngle: 270
   randomFire: 1
@@ -1010,6 +1011,7 @@ MonoBehaviour:
   phase: 1
   totalPhases: 1
   phaseThreshold: 0.5
+  spawnOnDeath: {fileID: 6574133758404447779, guid: c667af5ca6eb33744a60635b67c3ae99, type: 3}
   orbitRadius: 20
   orbitSpeed: 1
   clockwise: 1
