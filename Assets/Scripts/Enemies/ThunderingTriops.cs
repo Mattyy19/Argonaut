@@ -41,6 +41,8 @@ public class ThunderingTriops : BossEnemy
     {
         if (player == null) return;
 
+        float dist = Vector2.Distance(transform.position, player.position);
+
         if (spriteRenderer != null)
         {
             if (player.position.x < transform.position.x)
@@ -49,23 +51,26 @@ public class ThunderingTriops : BossEnemy
                 spriteRenderer.flipX = flipAnimation;  // facing right
         }
 
-        float direction = clockwise ? 1 : -1;
-        orbitAngle += orbitSpeed * direction * Time.deltaTime;
+        if (dist < detectionRange)
+        {
 
-        // Orbits player
-        Vector2 orbitOffset = new Vector2(
-            Mathf.Cos(orbitAngle),
-            Mathf.Sin(orbitAngle)
-        ) * orbitRadius;
+            float direction = clockwise ? 1 : -1;
+            orbitAngle += orbitSpeed * direction * Time.deltaTime;
 
-        // Adds vertical up and down movement
-        orbitOffset.y += Mathf.Sin(Time.time * verticalBobSpeed) * verticalBobAmount;
+            // Orbits player
+            Vector2 orbitOffset = new Vector2(
+                Mathf.Cos(orbitAngle),
+                Mathf.Sin(orbitAngle)
+            ) * orbitRadius;
 
-        Vector2 targetPos = (Vector2)player.position + orbitOffset;
-        Vector2 toTarget = targetPos - (Vector2)transform.position;
+            // Adds vertical up and down movement
+            orbitOffset.y += Mathf.Sin(Time.time * verticalBobSpeed) * verticalBobAmount;
 
-        rb.linearVelocity = toTarget.normalized * moveSpeed;
+            Vector2 targetPos = (Vector2)player.position + orbitOffset;
+            Vector2 toTarget = targetPos - (Vector2)transform.position;
 
+            rb.linearVelocity = toTarget.normalized * moveSpeed;
+        }
     }
 
     protected override void Attack()

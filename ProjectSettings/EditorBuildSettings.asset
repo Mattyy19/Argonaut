@@ -14,6 +14,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/StartScene.unity
     guid: 74c355a0522613948adb9493382b9739
+  - enabled: 1
+    path: Assets/Scenes/Desert.unity
+    guid: cb9e6716c760b6f4aa83a56bca0162e8
+  - enabled: 1
+    path: Assets/Scenes/Ice Mountain.unity
+    guid: 7de86ee6f00ef2641923a38ce942b4ba
+  - enabled: 1
+    path: Assets/Scenes/Slime Forest.unity
+    guid: c4e30963451786b4599a7e442c181b4a
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

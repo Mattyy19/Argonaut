@@ -988,6 +988,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Health
   maxHealth: 500
   currentHealth: 0
+  invulnerable: 0
   TakeDamageSound: ThundT_Hurt
   OnHealSound: 
   OnDeathSound: ThundT_Death
@@ -1004,7 +1005,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ThunderingTriops
   moveSpeed: 5
-  detectionRange: 30
+  detectionRange: 50
   attackDistance: 23
   attackCooldown: 5
   flipAnimation: 1

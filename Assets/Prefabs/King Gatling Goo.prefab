@@ -208,6 +208,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Health
   maxHealth: 500
   currentHealth: 0
+  invulnerable: 0
   TakeDamageSound: KingGG_Hurt
   OnHealSound: 
   OnDeathSound: KingGG_Hurt
@@ -238,7 +239,7 @@ MonoBehaviour:
   - {fileID: 2855588363132604166}
   - {fileID: 539873029963716223}
   burstDuration: 2
-  burstRate: 0.08
+  burstRate: 0.16
   hopForce: 6
   hopCooldown: 1.5
   crawlSpeed: 2

@@ -116,12 +116,19 @@ public class KingGatlingGoop : BossEnemy
     {
         base.EnterNextPhase();
 
-        // Spawn mini slimes
-        AudioManager.Instance.Play(AudioManager.SoundType.KingGG_Summon);
+        float radius = 1.5f;
+
         for (int i = 0; i < summonCount; i++)
         {
-            Vector3 pos = transform.position + (Vector3)(Random.insideUnitCircle * 1.5f);
-            Instantiate(slimePrefab, pos, Quaternion.identity);
+            // Angle for this slime in radians
+            float angle = (Mathf.PI * 2f / summonCount) * i;
+
+            // Convert angle into position on circle
+            Vector3 offset = new Vector3(Mathf.Cos(angle), Mathf.Sin(angle), 0) * radius;
+
+            Vector3 spawnPos = transform.position + offset;
+
+            Instantiate(slimePrefab, spawnPos, Quaternion.identity);
         }
 
         // Increase aggression

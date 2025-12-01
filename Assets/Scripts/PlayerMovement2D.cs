@@ -89,27 +89,24 @@ public class PlayerMovement2D : MonoBehaviour
             currFuel = Mathf.Min(currFuel, capacity);
         }
 
-        // Flip sprite based on movement direction
-        if (spriteRenderer != null && moveInput != 0)
+        // --- Flip player based on mouse position ---
+        Vector3 mouseWorld = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+        bool mouseIsLeft = mouseWorld.x < transform.position.x;
+
+        // Flip sprite
+        spriteRenderer.flipX = mouseIsLeft;
+
+        // Flip firePoint with player
+        if (firePoint != null)
         {
-            bool flip = moveInput < 0;
-            spriteRenderer.flipX = flip;
+            Vector3 localPos = firePoint.localPosition;
+            localPos.x = Mathf.Abs(localPos.x) * (mouseIsLeft ? -1 : 1);
+            firePoint.localPosition = localPos;
 
-            // Flip the firePoint position and facing direction
-            if (firePoint != null)
-            {
-                Vector3 localPos = firePoint.localPosition;
-                localPos.x = Mathf.Abs(localPos.x) * (flip ? -1 : 1);
-                firePoint.localPosition = localPos;
-
-                Vector3 localRot = firePoint.localEulerAngles;
-                localRot.y = flip ? 180 : 0;
-                firePoint.localEulerAngles = localRot;
-            }
-
-            // Update animator
-            animations.SetBool("isWalk", isWalking);
-            animations.SetBool("isRunning", isRunning);
+            Vector3 localRot = firePoint.localEulerAngles;
+            localRot.y = mouseIsLeft ? 180 : 0;
+            firePoint.localEulerAngles = localRot;
         }
 
         // Handle jumping

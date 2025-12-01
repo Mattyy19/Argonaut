@@ -30,47 +30,43 @@ public class Gun : MonoBehaviour
 
     void Update()
     {
-        fireCooldown -= Time.deltaTime; 
-        if(isReloading)
-        {
-            return;
-        }
+        // Aim at mouse
+        Vector3 mouseWorld = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 direction = (mouseWorld - firePoint.position);
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        firePoint.rotation = Quaternion.Euler(0, 0, angle);
+
+        fireCooldown -= Time.deltaTime;
+        if (isReloading) return;
 
         bool fireInput = Input.GetMouseButton(0);
         if (fireInput)
-        {
             shoot();
-        }
+
         if (Input.GetKey(KeyCode.R))
-        {
             StartCoroutine(reload());
-        }
     }
 
     void shoot()
     {
-        // Throttles fire rate
-        if (fireCooldown > 0f)
-        {
-            return;
-        }
+        if (fireCooldown > 0f) return;
         if (currMag <= 0)
         {
             StartCoroutine(reload());
             return;
         }
 
-        // Shoots bullet
         if (bulletPrefab && firePoint)
         {
             AudioManager.Instance.Play(AudioManager.SoundType.Player_Shoots);
+
             GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
             bullet.SetActive(true);
+
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
             if (rb != null)
             {
                 rb.linearVelocity = firePoint.right * bulletSpeed;
-                Debug.Log("Bullet shot");
             }
         }
 
