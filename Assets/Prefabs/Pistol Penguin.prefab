@@ -82,15 +82,15 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 6652117580091199038, guid: 653db96eabeda604ead533b1396e26b9, type: 3}
+  m_Sprite: {fileID: 2208703988740019828, guid: cb835c7688f2059469e9c6f6dd376779, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.16, y: 0.16}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!50 &1799253660717444814
@@ -159,7 +159,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 0.16, y: 0.16}
-    newSize: {x: 1, y: 1}
+    newSize: {x: 0.16, y: 0.16}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -184,7 +184,7 @@ MonoBehaviour:
   damage: 10
   targetTag: Player
   gravityAffected: 1
-  gravityModifier: 0.03
+  gravityModifier: 0.3
   spriteRotation: 0
 --- !u!1 &3967049470367756951
 GameObject:
@@ -391,6 +391,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Health
   maxHealth: 100
   currentHealth: 0
+  invulnerable: 0
   TakeDamageSound: PistPn_Hurt
   OnHealSound: 
   OnDeathSound: PistPn_Hurt

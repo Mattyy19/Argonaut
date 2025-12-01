@@ -63,6 +63,7 @@ public class Gun : MonoBehaviour
         // Shoots bullet
         if (bulletPrefab && firePoint)
         {
+            AudioManager.Instance.Play(AudioManager.SoundType.Player_Shoots);
             GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
             bullet.SetActive(true);
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();

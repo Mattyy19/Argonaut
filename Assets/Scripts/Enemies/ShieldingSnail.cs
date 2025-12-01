@@ -75,7 +75,9 @@ public class ShieldingSnail : BossEnemy
 	private void EnterShield()
 	{
 		health.invulnerable = true;
+		health.TakeDamageSound = "ShiSnl_Deflect";
 		isShielding = true;
+		AudioManager.Instance.Play(AudioManager.SoundType.ShiSnl_Guard);
 		shieldTimer = 0f;
 		animator.SetBool("isShielding", isShielding);
 	}
@@ -83,6 +85,7 @@ public class ShieldingSnail : BossEnemy
 	private void ExitShield()
 	{
 		health.invulnerable = false;
+		health.TakeDamageSound = "ShiSnl_Hurt";
 		isShielding = false;
 		cooldownTimer = 0f;
 		animator.SetBool("isShielding", isShielding);
@@ -95,33 +98,9 @@ public class ShieldingSnail : BossEnemy
 			// snail’s only “attack”
 			collision.collider.GetComponent<Health>()?.TakeDamage(999999999f);
 		}
-
-		else if (collision.collider.CompareTag("Projectile"))
-        {
-			foreach (var contact in collision.contacts)
-			{
-				Vector2 hit = contact.point;
-
-				// Path 1 = Shell
-				if (IsPointInPolygon(poly.GetPath(1), hit))
-				{
-					Debug.Log("Hit shell: invulnerable");
-					return; // block damage
-				}
-
-				// Path 0 = Body
-				if (IsPointInPolygon(poly.GetPath(0), hit))
-				{
-					Debug.Log("Hit body → DAMAGE");
-					health.invulnerable = false;
-					health.TakeDamage(collision.collider.GetComponent<Projectile>().damage);
-					return;
-				}
-			}
-		}
 	}
 
-	bool IsPointInPolygon(Vector2[] polyPoints, Vector2 p)
+		bool IsPointInPolygon(Vector2[] polyPoints, Vector2 p)
 	{
 		bool inside = false;
 		int j = polyPoints.Length - 1;

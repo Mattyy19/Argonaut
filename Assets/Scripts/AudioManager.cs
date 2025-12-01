@@ -53,6 +53,7 @@ public class AudioManager : MonoBehaviour
 
         Oxygen_Collected,
         Scrap_Collected,
+        Player_Shoots,
 
         // Add more sound types
 

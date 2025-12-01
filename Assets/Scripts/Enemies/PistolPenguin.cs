@@ -10,6 +10,7 @@ public class PistolPenguin : Enemy
     {
         if (bulletPrefab && firePoint)
         {
+            AudioManager.Instance.Play(AudioManager.SoundType.PistPn_Shoot);
             Vector2 dir = (player.position - transform.position).normalized;
             Vector3 spawnPos = firePoint.position + (Vector3)(dir * 1f);
             GameObject bullet = Instantiate(bulletPrefab, spawnPos, Quaternion.identity);
