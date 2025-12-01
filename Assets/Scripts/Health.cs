@@ -66,6 +66,7 @@ public class Health : MonoBehaviour
 
         transform.position = checkpointPos;
         currentHealth = maxHealth;
+        gameObject.GetComponent<Oxygen>().currentOxygen = gameObject.GetComponent<Oxygen>().maxOxygen;
         gameObject.GetComponent<Rigidbody2D>().linearVelocity = new Vector3(0, 0, 0);
         
         // destroy the player Destroy(gameObject, 0.5f);
