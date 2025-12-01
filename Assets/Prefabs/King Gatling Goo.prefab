@@ -231,6 +231,7 @@ MonoBehaviour:
   phase: 1
   totalPhases: 2
   phaseThreshold: 0.5
+  spawnOnDeath: {fileID: 6574133758404447779, guid: c667af5ca6eb33744a60635b67c3ae99, type: 3}
   bulletPrefab: {fileID: 3632306828591640467}
   gunPoints:
   - {fileID: 7702537336308834398}

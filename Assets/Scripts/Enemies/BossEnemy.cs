@@ -6,6 +6,7 @@ public abstract class BossEnemy : Enemy
     public int phase = 1;
     public int totalPhases = 2;
     public float phaseThreshold = 0.5f;
+    public GameObject spawnOnDeath;
 
     protected Health bossHealth;
 
@@ -46,6 +47,11 @@ public abstract class BossEnemy : Enemy
     protected virtual void OnBossDeath()
     {
         StopAllCoroutines();
+
+        if (spawnOnDeath)
+        {
+            Instantiate(spawnOnDeath, transform.position, transform.rotation);
+        }
     }
 
 }
