@@ -76,7 +76,7 @@ public class HUDManager : MonoBehaviour
 
         if (playerScrap != null)
         {
-            scrapDisplay.text = playerScrap.scrapCount.ToString();
+            scrapDisplay.text = PersistentInfo.scrapCount.ToString();
         }
     }
 }

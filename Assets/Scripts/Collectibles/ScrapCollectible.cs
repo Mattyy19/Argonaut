@@ -14,6 +14,7 @@ public class ScrapCollectible : MonoBehaviour
                 scrapManager.AddScrap(scrapValue);
             }
 
+            PersistentInfo.IncreaseScrapCount(scrapValue);
             Destroy(gameObject);
         }
     }
