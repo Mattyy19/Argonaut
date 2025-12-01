@@ -7,6 +7,7 @@ public class Health : MonoBehaviour
     [Header("Health Options")]
     public float maxHealth = 100f;
     public float currentHealth;
+    public bool invulnerable = false;
 
 
     public event Action OnTakeDamage;
@@ -25,6 +26,11 @@ public class Health : MonoBehaviour
 
     public void TakeDamage(float amount)
     {
+        if(invulnerable)
+        {
+            return;
+        }
+
         currentHealth -= amount;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
 
