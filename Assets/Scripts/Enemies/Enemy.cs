@@ -13,13 +13,15 @@ public abstract class Enemy : MonoBehaviour
 
     protected Transform player;
     protected SpriteRenderer spriteRenderer;
-    private Health health;
+    protected Health health;
+    private Vector3 originalScale;
 
     protected virtual void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         health = GetComponent<Health>();
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        originalScale = spriteRenderer.transform.localScale;
     }
 
     protected virtual void Update()
@@ -50,9 +52,9 @@ public abstract class Enemy : MonoBehaviour
         if (spriteRenderer != null)
         {
             if (player.position.x < transform.position.x)
-                spriteRenderer.flipX = !flipAnimation;   // facing left
+                spriteRenderer.transform.localScale = new Vector3(-Mathf.Abs(originalScale.x), originalScale.y, originalScale.z);
             else
-                spriteRenderer.flipX = flipAnimation;  // facing right
+                spriteRenderer.transform.localScale = new Vector3(Mathf.Abs(originalScale.x), originalScale.y, originalScale.z);
         }
     }
 
