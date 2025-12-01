@@ -1185,6 +1185,10 @@ PrefabInstance:
       value: 0.0000009536743
       objectReference: {fileID: 0}
     - target: {fileID: 6739801914669296856, guid: 1394ebf9860b0584e963a9aefcf8573f, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6739801914669296856, guid: 1394ebf9860b0584e963a9aefcf8573f, type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.x
       value: 25.045061
       objectReference: {fileID: 0}
@@ -5014,3 +5018,4 @@ SceneRoots:
   - {fileID: 937056589}
   - {fileID: 258391941}
   - {fileID: 727806540}
+  - {fileID: 290260923}
