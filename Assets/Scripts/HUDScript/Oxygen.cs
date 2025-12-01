@@ -41,6 +41,7 @@ public class Oxygen : MonoBehaviour
             if (currentOxygen <= 0)
             {
                 playerHealth.Death();
+                currentOxygen = maxOxygen;
             }
         }
     }
